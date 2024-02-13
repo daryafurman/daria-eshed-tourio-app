@@ -11,8 +11,23 @@ const StyledBackLink = styled(StyledLink)`
 export default function CreatePlacePage() {
   const router = useRouter();
 
-  function addPlace(place) {
-    console.log("Place added (but not really...)");
+  // function addPlace(place) {
+  //   console.log("Place added (but not really...)");
+  // }
+  async function addPlace(place) {
+    const response = await fetch(`/api/places`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(place),
+    });
+
+    if (response.ok) {
+      router.push("/");
+    } else {
+      alert("Server Error. Try again later");
+    }
   }
 
   return (
@@ -21,7 +36,7 @@ export default function CreatePlacePage() {
       <Link href="/" passHref legacyBehavior>
         <StyledBackLink>back</StyledBackLink>
       </Link>
-      <Form onSubmit={addPlace} formName={'add-place'} />
+      <Form onSubmit={addPlace} formName={"add-place"} />
     </>
   );
 }
