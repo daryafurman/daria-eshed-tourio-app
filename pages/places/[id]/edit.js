@@ -29,7 +29,9 @@ export default function EditPage() {
     }
   }
 
-  if (!isReady || isLoading || error) return <h2>Loading...</h2>;
+  // if (!isReady || isLoading || error) return <h2>Loading...</h2>;
+  if (!isReady || isLoading) return <h2>Loading...</h2>;
+  if (error) return <h2>Error</h2>;
 
   return (
     <>

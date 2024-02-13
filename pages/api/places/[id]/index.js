@@ -14,7 +14,6 @@ export default async function handler(request, response) {
 
   if (request.method === "GET") {
     const foundPlace = await Place.findById(id);
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!place", foundPlace);
     //   const comment = place?.comments;
     //   const allCommentIds = comment?.map((comment) => comment.$oid) || [];
     //   const comments = db_comments.filter((comment) =>
@@ -35,6 +34,12 @@ export default async function handler(request, response) {
     return response
       .status(200)
       .json({ status: "Place is sucsessfully updated" });
+  }
+  if (request.method === "DELETE") {
+    const places = await Place.findByIdAndDelete(id);
+    response.status(260).json("Place deleted");
+
+    return response.status(200).json(places);
   } else {
     return response.status(405).json({ message: "Method not allowed" });
   }
