@@ -26,6 +26,15 @@ export default async function handler(request, response) {
     //   }
 
     return response.status(200).json({ place: foundPlace, comments: [] });
+  }
+
+  if (request.method === "PUT") {
+    await Place.findByIdAndUpdate(id, {
+      $set: request.body,
+    });
+    return response
+      .status(200)
+      .json({ status: "Place is sucsessfully updated" });
   } else {
     return response.status(405).json({ message: "Method not allowed" });
   }
