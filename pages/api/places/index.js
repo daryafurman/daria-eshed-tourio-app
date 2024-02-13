@@ -5,7 +5,7 @@
 // }
 
 import dbConnect from "../../../db/connection.js";
-import Places from "../../../db/schemas/places.schema.js";
+import Places from "../../../db/schemas/place.js";
 
 export default async function handler(request, response) {
   await dbConnect();
