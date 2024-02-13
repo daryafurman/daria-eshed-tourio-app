@@ -47,7 +47,7 @@ export default function DetailsPage() {
 
   return (
     <>
-      <Link href={'/'} passHref legacyBehavior>
+      <Link href={"/"} passHref legacyBehavior>
         <StyledLink justifySelf="start">back</StyledLink>
       </Link>
       <ImageContainer>
