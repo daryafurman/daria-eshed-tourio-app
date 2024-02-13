@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const { Schema, models, model } = mongoose;
+const { Schema } = mongoose;
 
-const placesSchema = new Schema({
-  _id: { type: String, required: true },
+const placeSchema = new Schema({
+  // _id: { type: String, required: true },
   name: { type: String, required: true },
   location: { type: String, required: true },
   image: { type: String, required: true },
@@ -12,6 +12,6 @@ const placesSchema = new Schema({
   comments: [{ type: String, required: true }],
 });
 
-const Places = models.places || model("places", placesSchema);
+const Place = mongoose.models.Place || mongoose.model("Place", placeSchema);
 
-export default Places;
+export default Place;
