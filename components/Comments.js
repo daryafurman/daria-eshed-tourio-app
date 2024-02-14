@@ -4,16 +4,18 @@ import { StyledButton } from "./StyledButton.js";
 
 export default function Comments({ submitComment, locationName, comments }) {
   const Article = styled.article`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 5px solid black;
-    border-radius: 0.8rem;
-    padding: 0.5rem;
-    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+    margin: 40px auto;
+    color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16.4px);
+    -webkit-backdrop-filter: blur(16.4px);
     p {
       border-bottom: solid 1px black;
       padding: 20px;
+      font-size: 25px;
     }
   `;
 
