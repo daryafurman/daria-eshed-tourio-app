@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FormContainer, Input, Label } from "./Form";
 import { StyledButton } from "./StyledButton.js";
 
-export default function Comments({ locationName, comments }) {
+export default function Comments({ submitComment, locationName, comments }) {
   const Article = styled.article`
     display: flex;
     flex-direction: column;
@@ -17,8 +17,16 @@ export default function Comments({ locationName, comments }) {
     }
   `;
 
-  function handleSubmitComment(e) {
+  async function handleSubmitComment(e) {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    const { comment } = data;
+    if (comment === "") {
+      alert("Please write a comment.");
+      return;
+    }
+    submitComment(data);
   }
 
   return (
@@ -33,16 +41,16 @@ export default function Comments({ locationName, comments }) {
       {comments && (
         <>
           <h1> {comments.length} fans commented on this place:</h1>
-          {comments.map(({ name, comment }, idx) => {
+          {comments.map(({ name, comment, _id }) => {
             return (
-              <>
-                <p key={idx}>
+              <div key={_id}>
+                <p>
                   <small>
                     <strong>{name}</strong> commented on {locationName}
                   </small>
                 </p>
                 <span>{comment}</span>
-              </>
+              </div>
             );
           })}
         </>

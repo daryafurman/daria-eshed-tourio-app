@@ -12,7 +12,6 @@ const Article = styled.article`
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(16.4px);
   -webkit-backdrop-filter: blur(16.4px);
-  font-family: Arial (sans-serif);
 `;
 
 const ImageContainer = styled.div`
