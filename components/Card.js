@@ -3,9 +3,16 @@ import styled from "styled-components";
 import { StyledImage } from "./StyledImage.js";
 
 const Article = styled.article`
-  border: 5px solid black;
-  border-radius: 0.8rem;
-  padding: 0.5rem;
+  padding: 20px;
+  width: 700px;
+  max-width: 400px;
+  margin: 40px auto;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16.4px);
+  -webkit-backdrop-filter: blur(16.4px);
+  font-family: Arial (sans-serif);
 `;
 
 const ImageContainer = styled.div`
