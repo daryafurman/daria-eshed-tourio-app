@@ -7,7 +7,7 @@ import { StyledLink } from "../components/StyledLink.js";
 const List = styled.ul`
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   gap: 1rem;
   padding-left: 0;
